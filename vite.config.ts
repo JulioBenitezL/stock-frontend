@@ -11,7 +11,7 @@ export default defineConfig({
   preview: {
     port: process.env.PORT ? parseInt(process.env.PORT) : 4173,
     host: '0.0.0.0', // Necesario para Railway
-    allowedHosts: ['healthcheck.railway.app'], // Permitir healthchecks de Railway
+    allowedHosts: true, // Permitir todos los hosts en producción
   },
   build: {
     outDir: 'dist',
