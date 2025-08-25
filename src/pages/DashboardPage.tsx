@@ -76,6 +76,18 @@ export const DashboardPage: React.FC = () => {
     total + (venta.cantidad * venta.precio_unitario), 0
   );
 
+  // Total de ventas del día actual
+  const today = new Date().toDateString(); // Obtiene solo la fecha como string (sin hora)
+  
+  const ventasDelDia = ventas.filter(venta => {
+    const ventaDate = new Date(venta.fecha).toDateString(); // Convierte fecha de venta a string (sin hora)
+    return ventaDate === today; // Compara solo las fechas
+  });
+  
+  const totalVentasDelDia = ventasDelDia.reduce((total, venta) => 
+    total + (venta.cantidad * venta.precio_unitario), 0
+  );
+
   return (
     <div>
       <Row className="mb-4">
@@ -111,9 +123,33 @@ export const DashboardPage: React.FC = () => {
         })}
       </Row>
 
-      {/* Resumen de ventas del mes */}
+      {/* Resumen de ventas del día y mes */}
       <Row className="mb-4">
-        <Col>
+        <Col md={6}>
+          <Card>
+            <Card.Body>
+              <div className="d-flex align-items-center mb-3">
+                <TrendingUp size={20} className="text-info me-2" />
+                <Card.Title className="mb-0">Ventas de Hoy</Card.Title>
+              </div>
+              <Row>
+                <Col md={6}>
+                  <div>
+                    <p className="text-muted mb-1">Total de Ventas</p>
+                    <h3 className="text-info mb-0">{ventasDelDia.length}</h3>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div>
+                    <p className="text-muted mb-1">Monto Total</p>
+                    <h3 className="text-info mb-0">{formatCurrency(totalVentasDelDia)}</h3>
+                  </div>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6}>
           <Card>
             <Card.Body>
               <div className="d-flex align-items-center mb-3">
