@@ -267,10 +267,10 @@ export const ProduccionForm: React.FC<ProduccionFormProps> = ({
               <Form.Label>Cantidad Producida *</Form.Label>
               <Form.Control
                 type="number"
-                step="0.01"
+                step="any"
                 {...register('cantidad_producida', {
                   required: 'La cantidad producida es requerida',
-                  min: { value: 0.01, message: 'La cantidad debe ser mayor a 0' },
+                  min: { value: 0.001, message: 'La cantidad debe ser mayor a 0' },
                   valueAsNumber: true
                 })}
                 isInvalid={!!errors.cantidad_producida}
@@ -313,7 +313,7 @@ export const ProduccionForm: React.FC<ProduccionFormProps> = ({
                   render={({ field }) => (
                     <Form.Control
                       type="number"
-                      step="0.01"
+                      step="any"
                       placeholder="0.00"
                       {...field}
                       value={field.value === undefined || field.value === null ? '' : field.value}
@@ -464,10 +464,10 @@ export const ProduccionForm: React.FC<ProduccionFormProps> = ({
                       </Form.Label>
                       <Form.Control
                         type="number"
-                        step="0.01"
+                        step="any"
                         {...register(`insumos.${index}.cantidad_utilizada`, {
                           required: 'La cantidad es requerida',
-                          min: { value: 0.01, message: 'La cantidad debe ser mayor a 0' },
+                          min: { value: 0.001, message: 'La cantidad debe ser mayor a 0' },
                           max: selectedInsumo ? {
                             value: selectedInsumo.cantidad,
                             message: `No puede usar más de ${selectedInsumo.cantidad} ${selectedInsumo.unidad}`

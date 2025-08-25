@@ -105,7 +105,7 @@ export const ProductoForm: React.FC<ProductoFormProps> = ({
         <Input
           label="Cantidad *"
           type="number"
-          step="0.01"
+          step="any"
           {...register('cantidad', {
             required: 'La cantidad es requerida',
             min: { value: 0, message: 'La cantidad debe ser mayor o igual a 0' },
@@ -124,9 +124,9 @@ export const ProductoForm: React.FC<ProductoFormProps> = ({
         <Input
           label="Precio de Venta"
           type="number"
-          step="0.01"
+          step="any"
           {...register('precio_venta', {
-            min: { value: 0, message: 'El precio debe ser mayor o igual a 0' },
+            min: { value: 0, message: 'El precio debe ser mayor or igual a 0' },
             valueAsNumber: true,
           })}
           error={errors.precio_venta?.message}

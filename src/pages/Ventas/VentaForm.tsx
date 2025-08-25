@@ -123,10 +123,10 @@ export const VentaForm: React.FC<VentaFormProps> = ({
         <Input
           label="Cantidad *"
           type="number"
-          step="0.01"
+          step="any"
           {...register('cantidad', {
             required: 'La cantidad es requerida',
-            min: { value: 0.01, message: 'La cantidad debe ser mayor a 0' },
+            min: { value: 0.001, message: 'La cantidad debe ser mayor a 0' },
             max: selectedProducto ? { 
               value: selectedProducto.cantidad, 
               message: `No puede vender más de ${selectedProducto.cantidad} unidades disponibles` 
@@ -139,10 +139,10 @@ export const VentaForm: React.FC<VentaFormProps> = ({
         <Input
           label="Precio Unitario *"
           type="number"
-          step="0.01"
+          step="any"
           {...register('precio_unitario', {
             required: 'El precio unitario es requerido',
-            min: { value: 0.01, message: 'El precio debe ser mayor a 0' },
+            min: { value: 0.001, message: 'El precio debe ser mayor a 0' },
             valueAsNumber: true
           })}
           error={errors.precio_unitario?.message}

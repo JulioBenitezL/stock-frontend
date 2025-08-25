@@ -86,7 +86,7 @@ export const InsumoForm: React.FC<InsumoFormProps> = ({
               <Input
                 label="Cantidad *"
                 type="number"
-                step="0.01"
+                step="any"
                 {...register('cantidad', {
                   required: 'La cantidad es requerida',
                   min: { value: 0, message: 'La cantidad debe ser mayor o igual a 0' },
@@ -105,7 +105,7 @@ export const InsumoForm: React.FC<InsumoFormProps> = ({
               <Input
                 label="Precio Unitario"
                 type="number"
-                step="0.01"
+                step="any"
                 {...register('precio_unitario', {
                   min: { value: 0, message: 'El precio debe ser mayor o igual a 0' },
                   valueAsNumber: true,
