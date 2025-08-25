@@ -77,10 +77,12 @@ export const VentasPage: React.FC = () => {
         </div>
       ) : (
         <div className="bg-white rounded-lg shadow">
-          <Table headers={['Producto ID', 'Cantidad', 'Precio Unitario', 'Total', 'Fecha', 'Acciones']}>
+          <Table headers={['Producto', 'Cantidad', 'Precio Unitario', 'Total', 'Fecha', 'Acciones']}>
             {ventas.map((venta) => (
               <TableRow key={venta.id}>
-                <TableCell>{venta.producto_id}</TableCell>
+                <TableCell>
+                  {venta.producto?.nombre || `Producto ${venta.producto_id}`}
+                </TableCell>
                 <TableCell>{venta.cantidad}</TableCell>
                 <TableCell>{formatCurrency(venta.precio_unitario)}</TableCell>
                 <TableCell>{formatCurrency(venta.cantidad * venta.precio_unitario)}</TableCell>

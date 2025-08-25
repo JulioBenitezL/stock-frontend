@@ -46,7 +46,11 @@ export interface Venta {
   cantidad: number;
   precio_unitario: number;
   fecha: string;
-  Producto?: Producto;
+  producto?: {
+    id: number;
+    nombre: string;
+    unidad: string;
+  };
   createdAt?: string;
   updatedAt?: string;
 }
